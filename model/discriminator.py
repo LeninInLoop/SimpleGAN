@@ -1,4 +1,5 @@
 from model import nn
+from config import Config
 
 class Discriminator(nn.Module):
     """
@@ -12,8 +13,10 @@ class Discriminator(nn.Module):
         super(Discriminator, self).__init__()
 
         self.model = nn.Sequential(
-            nn.Linear(28 * 28, 128),
-            nn.LeakyReLU(0.01),
+            nn.Linear(28 * 28, 256),
+            nn.LeakyReLU(Config.LEAKY_RATE),
+            nn.Linear(256, 128),
+            nn.LeakyReLU(Config.LEAKY_RATE),
             nn.Linear(128, 1),
             nn.Sigmoid()  # Output probability (real or fake)
         )
