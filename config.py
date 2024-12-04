@@ -5,7 +5,7 @@ class Config:
     BATCH_SIZE = 32
     NUM_WORKERS = 4
     TRAIN_SIZE = 0.8
-    NUM_EPOCHS = 1000
+    NUM_EPOCHS = 100
     LATENT_DIM = 128
     LEARNING_RATE = 3e-4
     LEAKY_RATE = 0.2
