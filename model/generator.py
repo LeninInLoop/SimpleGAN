@@ -16,7 +16,9 @@ class Generator(nn.Module):
         self.model = nn.Sequential(
             nn.Linear(latent_dim, 256),
             nn.LeakyReLU(Config.LEAKY_RATE),
-            nn.Linear(256, 28 * 28 * 1),
+            nn.Linear(256, 128),
+            nn.LeakyReLU(Config.LEAKY_RATE),
+            nn.Linear(128, 28 * 28 * 1),
             nn.Tanh()  # Output image normalized to [-1, 1], we would normalize the mnist dataset too.
         )
 
